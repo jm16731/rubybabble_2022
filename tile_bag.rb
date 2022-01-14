@@ -16,6 +16,16 @@ class TileBag
 				:E, :E, :E, :E, :E, :E, :E, :E, :E, :E, :E, :E
 			]
 
+			@point_values {
+				Q: 10, Z: 10,
+				J: 8, X: 8,
+				K: 5,
+				F: 4, H: 4, V: 4, W: 4, Y: 4,
+				B: 3, C: 3, M: 3, P: 3,
+				D: 2, G: 2,
+				E: 1, A: 1, I: 1, O: 1, N: 1, R: 1, T: 1, L: 1, S: 1, U: 1
+			}
+
 			@tile_bag.shuffle!
 	end
 
@@ -28,5 +38,6 @@ class TileBag
 	end
 
 	def self.points_for(tile)
+		@point_values[tile]
 	end
 end
