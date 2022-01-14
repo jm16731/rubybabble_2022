@@ -1,7 +1,7 @@
 require "minitest/autorun"
-require_relative "tile_bag.rb"
+require_relative "../../tile_bag.rb"
 
-class TileBag::TestPointsFor
+class TileBag::TestPointsFor < MiniTest::Test
 
 	def test_confirm_point_values
 		assert_equal 1, TileBag.points_for(:E)
