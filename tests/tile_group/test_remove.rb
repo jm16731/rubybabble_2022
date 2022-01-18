@@ -3,6 +3,10 @@ require_relative "../../tile_group.rb"
 
 class TileGroup::TestRemove < MiniTest::Test
 
+	def setup
+		@tile_group = TileGroup.new
+	end
+
 	def test_remove_only_tile
 		skip "Test not yet implemented"
 	end
