@@ -11,7 +11,7 @@ class TileBag::TestDrawTile < MiniTest::Test
 		(1..98).each do |i|
 
 			assert_equal false, @tile_bag.empty?
-			@tile_bag.pop
+			@tile_bag.draw_tile
 		end
 		assert_equal true, @tile_bag.empty?
 	end
@@ -38,7 +38,7 @@ class TileBag::TestDrawTile < MiniTest::Test
 		}
 
 		until @tile_bag.empty?
-			@tile = @tile_bag.pop
+			@tile = @tile_bag.draw_tile
 			@current[@tile] += 1
 		end
 
