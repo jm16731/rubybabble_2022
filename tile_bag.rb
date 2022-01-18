@@ -16,7 +16,7 @@ class TileBag
 				:E, :E, :E, :E, :E, :E, :E, :E, :E, :E, :E, :E
 			]
 
-			@point_values {
+			@point_values = {
 				Q: 10, Z: 10,
 				J: 8, X: 8,
 				K: 5,

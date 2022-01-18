@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require_relative "../../tile_group.rb"
 
-class TileGroup::TestAppend
+class TileGroup::TestAppend < MiniTest::Test
 
 	def test_append_one_tile
 		skip "Test not yet implemented"
