@@ -4,8 +4,8 @@ require_relative "../../word.rb"
 class Word::TestScore < MiniTest::Test
 
   def setup
-		@word = Word.new
-	end
+    @word = Word.new
+  end
 
   def test_empty_word_should_have_score_of_zero
     skip "Test not yet implemented"

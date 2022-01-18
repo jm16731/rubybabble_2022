@@ -8,15 +8,22 @@ class TileGroup::TestAppend < MiniTest::Test
 	end
 
 	def test_append_one_tile
-		skip "Test not yet implemented"
+		@tile_group.append(:A)
+		assert_equal [:A], @tile_group.tiles
 	end
 
 	def test_append_many_tiles
-		skip "Test not yet implemented"
+		@tile_group.append(:A)
+		@tile_group.append(:B)
+		@tile_group.append(:C)
+		assert_equal [:A, :B, :C], @tile_group.tiles
 	end
 
 	def test_append_duplicate_tiles
-		skip "Test not yet implemented"
+		@tile_group.append(:A)
+		@tile_group.append(:A)
+		@tile_group.append(:A)
+		assert_equal [:A, :A, :A], @tile_group.tiles
 	end
 
 end

@@ -4,8 +4,8 @@ require_relative "../../tile_group.rb"
 class TileGroup::TestHand < MiniTest::Test
 
   def setup
-		@tile_group = TileGroup.new
-	end
+    @tile_group = TileGroup.new
+  end
 
   def test_convert_empty_group_to_string
     skip "Test not yet implemented"

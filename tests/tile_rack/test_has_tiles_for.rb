@@ -4,8 +4,8 @@ require_relative "../../tile_rack.rb"
 class TileRack::TestHasTilesFor < MiniTest::Test
 
   def setup
-		@tile_rack = TileRack.new
-	end
+    @tile_rack = TileRack.new
+  end
 
   def test_rack_has_needed_letters_when_letters_are_in_order_no_duplicates
     skip "Test not yet implemented"

@@ -4,8 +4,8 @@ require_relative "../../tile_rack.rb"
 class TileRack::TestNumberOfTilesNeeded < MiniTest::Test
 
   def setup
-		@tile_rack = TileRack.new
-	end
+    @tile_rack = TileRack.new
+  end
 
   def test_empty_tile_rack_should_need_max_tiles
     skip "Test not yet implemented"
