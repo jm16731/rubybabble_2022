@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "tile_rack.rb"
+require_relative "../../tile_rack.rb"
 
 class TileRack::TestNumberOfTilesNeeded
 

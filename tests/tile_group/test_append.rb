@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "tile_group.rb"
+require_relative "../../tile_group.rb"
 
 class TileGroup::TestAppend
 

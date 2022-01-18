@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "word.rb"
+require_relative "../../word.rb"
 
 class Word::TestScore
 

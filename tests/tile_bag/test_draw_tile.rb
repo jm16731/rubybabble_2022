@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "tile_bag.rb"
+require_relative "../../tile_bag.rb"
 
 class TileBag::TestDrawTile
 
