@@ -16,7 +16,7 @@ class TileGroup
 
 	def hand
 		@hand = ""
-		@tiles.each {|tile| @hand += tile.to_s + " "}
+		@tiles.each {|tile| @hand += tile.to_s}
 		@hand
 	end
 
