@@ -7,7 +7,11 @@ class TileRack < TileGroup
 	end
 
 	def has_tiles_for?(text)
-		text.length - @tiles.length
+		text_as_array = text.chars.map { |x| x.to_sym }
+		(text_as_array - @tiles).empty?
+		#but fails on duplicates
+		#text = "text"
+		#@tiles = [:A, :E, :T, :V, :X]
 	end
 
 	def remove_word(text)
