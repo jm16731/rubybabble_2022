@@ -8,7 +8,7 @@ class Word::TestInitialize < MiniTest::Test
 	end
 
 	def test_create_empty_word
-		skip "Test not yet implemented"
+		assert_equal "", @word.hand
 	end
 
 end
