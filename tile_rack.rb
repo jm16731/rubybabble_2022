@@ -8,7 +8,7 @@ class TileRack < TileGroup
 
 	def has_tiles_for?(text)
 		text_as_array = text.chars.map { |x| x.to_sym }
-		(text_as_array - @tiles).empty?
+		(text_as_array.subtract_once(@tiles)).empty?
 		#but fails on duplicates
 		#text = "text"
 		#@tiles = [:A, :E, :T, :V, :X]
@@ -16,5 +16,12 @@ class TileRack < TileGroup
 
 	def remove_word(text)
 	end
+
+	private
+
+	Array.class_eval { def subtract_once(values);
+    counts = values.inject(Hash.new(0)) { |h, v| h[v] += 1; h };
+    reject { |e| counts[e] -= 1 unless counts[e].zero? };
+  end }
 
 end
