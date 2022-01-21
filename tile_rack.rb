@@ -1,3 +1,5 @@
+require_relative "word.rb"
+
 class TileRack < TileGroup
 
 	MAX_TILES_ON_RACK = 7
@@ -12,6 +14,11 @@ class TileRack < TileGroup
 	end
 
 	def remove_word(text)
+		@word = Word.new
+		text_as_array = text.chars.map { |x| x.to_sym }
+		text_as_array.each { |x| @word.append(x)}
+		text_as_array.each { |x| remove(x)}
+		@word
 	end
 
 	private
