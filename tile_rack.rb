@@ -9,9 +9,6 @@ class TileRack < TileGroup
 	def has_tiles_for?(text)
 		text_as_array = text.chars.map { |x| x.to_sym }
 		(text_as_array.subtract_once(@tiles)).empty?
-		#but fails on duplicates
-		#text = "text"
-		#@tiles = [:A, :E, :T, :V, :X]
 	end
 
 	def remove_word(text)
@@ -19,6 +16,9 @@ class TileRack < TileGroup
 
 	private
 
+	#this class is from glebm of stackoverflow.com
+	#https://stackoverflow.com/questions/3852755/ruby-array-subtraction-without-removing-items-more-than-once
+	#used so the chosen algorithm for has_tiles_for? can work with duplicate letters
 	Array.class_eval { def subtract_once(values);
     counts = values.inject(Hash.new(0)) { |h, v| h[v] += 1; h };
     reject { |e| counts[e] -= 1 unless counts[e].zero? };
