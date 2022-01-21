@@ -1,27 +1,59 @@
 require 'spellchecker'
 require 'tempfile'
-
-#Spellchecker::check("WordToCheck")[0][:correct]
+require_relative 'tile_bag.rb'
+require_relative 'tile_rack.rb'
+require_relative 'word.rb'
 
 class Babble
 
 	def initialize()
+		@tile_bag = TileBag.new
+		@tile_rack = TileRack.new
+		@score = 0
 	end
 
 	def run()
-		#until ??
+		user_input = ""
+		until user_input == ":quit"
+			user_input = ":quit"
+			#refresh_rack
+			#puts "Tile Rack: {letters on rack}"
+			#puts "Please guess a word"
+			#user_input = gets
+			#if user_input == ":quit"
+				#next
+			#end
+			#if not spellcheck(user_input)
+				#puts "Not a valid word"
+				#next
+			#end
+			#if not @tile_rack.has_tiles_for?(user_input)
+				#puts "Not enough tiles"
+				#next
+			#end
+			#puts "You made #{user_input} for #{score(user_input)}"
+			#puts "Current Total Score: #{@score}"
 
-  #  displays the letters in the tile rack
-  #  prompts the user to guess a word
-  #  if ":quit" is entered, displays "Thanks for playing, total score: 45" (replacing 45 with the actual total score).
-  #  if the word is not valid (i.e., fails spellcheck), displays "Not a valid word"
-  #  if the word is valid but the rack doesn't have the needed tiles, displays "Not enough tiles"
-  #  if the word is valid and has the proper tiles, displays "You made WORD for 10 points" (replacing WORD with the actual word guessed and the 10 with the actual number of points for that word)
-  #  At the end of every guess, regardless of whether it was right or not, the current total score is displayed.
-
+		end
+		puts "Thanks for playing, total score: #{@score}"
 	end
 
 	private
+
+	def refresh_rack
+		until (@tile_rack.number_of_tiles_needed == 0 || @tile_bag.empty?)
+			@tile_rack.append(@tile_bag.draw_tile)
+		end
+	end
+
+	def spellcheck(word)
+		Spellchecker::check(word)[0][:correct]
+	end
+
+	def score(word)
+		@word = @tile_rack.remove_word(word)
+		@score += @word.score
+	end
 
 end
 Babble.new.run
