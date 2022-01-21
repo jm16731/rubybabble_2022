@@ -24,16 +24,18 @@ class TileRack::TestRemoveWord < MiniTest::Test
     @tile_rack.append(:C)
     @tile_rack.append(:A)
     @tile_rack.append(:T)
-    assert_equal @word_one, @tile_rack.remove_word("CAT")
+    @word = @tile_rack.remove_word("CAT")
     assert_equal 7, @tile_rack.number_of_tiles_needed
     assert_equal false, @tile_rack.has_tiles_for?("CAT")
+    assert_equal @word_one.tiles.sort, @word.tiles.sort
   end
 
   def test_can_remove_a_word_whose_letters_are_not_in_order_on_the_rack
     @tile_rack.append(:A)
     @tile_rack.append(:C)
     @tile_rack.append(:T)
-    assert_equal @word_one, @tile_rack.remove_word("CAT")
+    @word = @tile_rack.remove_word("CAT")
+    assert_equal @word_one.tiles.sort, @word.tiles.sort
     assert_equal 7, @tile_rack.number_of_tiles_needed
     assert_equal false, @tile_rack.has_tiles_for?("CAT")
   end
@@ -45,7 +47,8 @@ class TileRack::TestRemoveWord < MiniTest::Test
     @tile_rack.append(:R)
     @tile_rack.append(:O)
     @tile_rack.append(:W)
-    assert_equal @word_two, @tile_rack.remove_word("MARROW")
+    @word = @tile_rack.remove_word("MARROW")
+    assert_equal @word_two.tiles.sort, @word.tiles.sort
     assert_equal 7, @tile_rack.number_of_tiles_needed
     assert_equal false, @tile_rack.has_tiles_for?("MARROW")
   end
@@ -58,7 +61,8 @@ class TileRack::TestRemoveWord < MiniTest::Test
     @tile_rack.append(:O)
     @tile_rack.append(:W)
     @tile_rack.append(:R)
-    assert_equal @word_two, @tile_rack.remove_word("MARROW")
+    @word = @tile_rack.remove_word("MARROW")
+    assert_equal @word_two.tiles.sort, @word.tiles.sort
     assert_equal 6, @tile_rack.number_of_tiles_needed
     assert_equal false, @tile_rack.has_tiles_for?("MARROW")
   end

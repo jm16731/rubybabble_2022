@@ -17,7 +17,9 @@ class TileRack < TileGroup
 		@word = Word.new
 		text_as_array = text.chars.map { |x| x.to_sym }
 		text_as_array.each { |x| @word.append(x)}
-		text_as_array.each { |x| remove(x)}
+
+		text_as_array.each {|x| remove(x)}
+		#text_as_array.each { |x| @tiles.delete_at(@tiles.index(x) || @tiles.length)}
 		@word
 	end
 
@@ -30,5 +32,9 @@ class TileRack < TileGroup
     counts = values.inject(Hash.new(0)) { |h, v| h[v] += 1; h };
     reject { |e| counts[e] -= 1 unless counts[e].zero? };
   end }
+
+	#def remove(tile)
+	#	super
+	#end
 
 end
