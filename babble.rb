@@ -14,16 +14,15 @@ class Babble
 
 	def run()
 		user_input = ''
-		until (user_input == ':quit')
+		until (user_input == ':QUIT')
 			puts "Current Total Score: #{@score}"
 			refresh_rack
 			puts "Tile Rack: #{@tile_rack.hand}"
 			puts 'Please guess a word'
-			user_input = gets.chomp
-			if user_input == ':quit'
+			user_input = gets.chomp.upcase
+			if user_input == ':QUIT'
 				next
 			end
-			user_input = user_input.upcase
 			if not spellcheck(user_input)
 				puts 'Not a valid word'
 				next
