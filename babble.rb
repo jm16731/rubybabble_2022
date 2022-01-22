@@ -13,25 +13,26 @@ class Babble
 	end
 
 	def run()
-		user_input = ""
-		until user_input == ":quit"
+		user_input = ''
+		until (user_input == ':quit')
+			puts "Current Total Score: #{@score}"
 			refresh_rack
 			puts "Tile Rack: #{@tile_rack.hand}"
-			puts "Please guess a word"
-			user_input = gets
-			if user_input == ":quit"
+			puts 'Please guess a word'
+			user_input = gets.chomp
+			if user_input == ':quit'
 				next
 			end
+			user_input = user_input.upcase
 			if not spellcheck(user_input)
-				puts "Not a valid word"
+				puts 'Not a valid word'
 				next
 			end
 			if not @tile_rack.has_tiles_for?(user_input)
-				puts "Not enough tiles"
+				puts 'Not enough tiles'
 				next
 			end
 			puts "You made #{user_input} for #{score(user_input)}"
-			puts "Current Total Score: #{@score}"
 		end
 		puts "Thanks for playing, total score: #{@score}"
 	end
